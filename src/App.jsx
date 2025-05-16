@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react"
 
 /**
  * Personal website for CK (ck46) — 2025‑05‑15
