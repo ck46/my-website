@@ -9,9 +9,25 @@ import { Analytics } from "@vercel/analytics/react"
  */
 
 export default function App() {
+  /* ---------------- GitHub Profile ---------------- */
+  const GITHUB_USERNAME = "ck46";
+  const [profile, setProfile] = useState(null);
+
+  useEffect(() => {
+    async function fetchProfile() {
+      try {
+        const res = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`);
+        const data = await res.json();
+        setProfile(data);
+      } catch (err) {
+        console.error(err);
+      }
+    }
+    fetchProfile();
+  }, []);
   /* ---------------- GitHub Projects ---------------- */
   const [repos, setRepos] = useState([]);
-  const GITHUB_USERNAME = "ck46";
+  // const GITHUB_USERNAME = "ck46";
 
   useEffect(() => {
     async function fetchRepos() {
@@ -60,7 +76,7 @@ export default function App() {
 
       {/* Main Content */}
       <main className="flex-1 ml-0 md:ml-64 px-4 py-12 space-y-20">
-        <Hero />
+        <Hero profile={profile}/>
 
         {/* Projects Section */}
         <section id="projects">
@@ -109,15 +125,35 @@ function Sidebar() {
 }
 
 /* ---------------- Hero ---------------- */
-function Hero() {
+function Hero({ profile }) {
   return (
-    <section className="pt-24 pb-16 text-center">
-      <h2 className="text-4xl md:text-5xl font-extrabold mb-4 animate-fade-in">
-        Chansa Kabwe
-      </h2>
-      <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-        AI Engineer • Researcher • Innovator — On a quest for the AI Singularity.
-      </p>
+    <section className="pt-24 pb-16 text-center flex flex-col items-center gap-6">
+      {/* avatar */}
+      {profile?.avatar_url && (
+        <img
+          src={profile.avatar_url}
+          alt={profile.name || "CK avatar"}
+          className="w-32 h-32 rounded-full shadow-md border border-gray-300"
+        />
+      )}
+
+      <div>
+        <h2 className="text-4xl md:text-5xl font-extrabold mb-2 animate-fade-in">
+          {profile?.name || "Chansa Kabwe"}
+        </h2>
+        <p className="text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+          {profile?.bio || "AI Engineer • Researcher • Innovator — On a quest for the AI Singularity."}
+        </p>
+
+        {/* meta stats */}
+        {profile && (
+          <div className="mt-4 flex justify-center gap-6 text-sm text-gray-600">
+            <span>📦 {profile.public_repos} repos</span>
+            <span>👥 {profile.followers} followers</span>
+            <span>🌍 {profile.location || "Earth"}</span>
+          </div>
+        )}
+      </div>
     </section>
   );
 }
