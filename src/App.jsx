@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 
+import { Analytics } from "@vercel/analytics/next"
+
 /**
  * Personal website for CK (ck46) — 2025‑05‑15
  * Adds a RESEARCH section that pulls public models from Hugging Face Hub.
@@ -53,6 +55,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-gray-100 text-gray-900 font-sans flex">
+      <Analytics />
       <Sidebar />
 
       {/* Main Content */}
