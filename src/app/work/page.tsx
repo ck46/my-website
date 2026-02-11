@@ -56,7 +56,9 @@ export default function WorkPage() {
                 </div>
                 <div className="pt-4">
                     <a
-                        href={`mailto:${siteConfig.email}?subject=${encodeURIComponent("Advisory / sprint inquiry")}&body=${encodeURIComponent("Hi Chansa,\n\nI'd like to discuss a potential engagement.\n\n1. Our current challenge:\n2. What we're hoping to achieve:\n3. Preferred timeline:\n\nBest,")}`}
+                        href={siteConfig.calendly}
+                        target="_blank"
+                        rel="noreferrer"
                         className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-mono text-sm hover:bg-primary/90 transition-colors"
                     >
                         Book a Discovery Call

@@ -44,12 +44,12 @@ export default function ContactPage() {
                 })}
             </div>
 
-            {/* Direct email fallback */}
+            {/* Direct booking fallback */}
             <section className="text-center text-sm font-mono text-muted-foreground">
                 <p>
-                    Or email directly:{" "}
-                    <a href={`mailto:${siteConfig.email}`} className="text-primary hover:underline">
-                        {siteConfig.email}
+                    Or book directly:{" "}
+                    <a href={siteConfig.calendly} target="_blank" rel="noreferrer" className="text-primary hover:underline">
+                        Schedule a 30-min call
                     </a>
                 </p>
             </section>

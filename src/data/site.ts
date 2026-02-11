@@ -16,7 +16,7 @@ export const siteConfig = {
     description:
         "Building safety and reliability infrastructure for agentic AI systems.",
     url: "https://ck46.com",
-    email: "hello@ck46.com",
+    calendly: "https://calendly.com/chansa-megacog/30min",
     socials: {
         github: "https://github.com/ck46",
         huggingface: "https://huggingface.co/ck46",
@@ -46,7 +46,7 @@ export const heroContent = {
         "Engineering leader focused on reasoning validation, evaluation harnesses, and production-grade guardrails — so teams can deploy agents with measurable reliability and safer behavior.",
     ctaPrimary: {
         text: "./book_call.sh",
-        href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Discovery call")}&body=${encodeURIComponent("Hi Chansa,\n\nI'd like to schedule a discovery call to discuss:\n\n1. Our current agentic system and challenges\n2. What a sprint or advisory engagement might look like\n3. Timeline and availability\n\nBest,")}`,
+        href: siteConfig.calendly,
     },
     ctaSecondary: {
         text: "cat startup_brief.md",
@@ -113,28 +113,40 @@ export interface RoadmapItem {
 
 export const njiraContent = {
     title: "NjiraAI",
-    tagline: "Safety and reliability infrastructure for agentic systems.",
+    tagline: "Safety and reliability infrastructure for tool-using AI agents.",
     problem:
-        "Agents deployed in high-stakes environments lack robust validation for their reasoning chains, leading to unpredictable failures.",
+        "Agents fail at the action layer. They call the wrong API, pass malformed arguments, loop indefinitely, or take destructive actions with no human in the loop. There\u2019s no inspection point between what an agent decides and what it actually does.",
     solution:
-        "A reliability layer that evaluates agent reasoning in real-time, enforcing guardrails and quality gates before actions are executed.",
+        "NjiraAI is a governance proxy that sits between your agent and its tools. Every tool call passes through a real-time policy engine that can ALLOW, BLOCK, or MODIFY it before execution. You get control over agent behavior without rewriting your agent.",
     whatWeAreBuilding: [
-        "Evaluation / validation layer for agent reasoning chains",
-        "Guardrails & quality gates before agent actions execute",
-        "Telemetry + regression testing for agent loops",
+        "Policy-gated proxy for agent tool calls \u2014 ALLOW / BLOCK / MODIFY in real time",
+        "Audit-grade traces with full request/response capture",
+        "Replay and simulation: test new policies against recorded sessions",
+        "Regression testing: detect behavioral drift across model or prompt changes",
+        "Loop detection and circuit-breaker protection",
     ],
-    whoThisIsFor:
-        "Teams deploying agents in higher-stakes workflows — finance, healthcare, legal ops, developer tooling.",
+    example: {
+        call: "DELETE /api/v1/users/all",
+        body: '{"confirm": true}',
+        result: "BLOCK",
+    },
+    whoThisIsFor: [
+        "Teams deploying tool-using agents in production",
+        "Investors aligned with AI safety infrastructure",
+        "Engineers and researchers who want to work on this problem early",
+    ],
     roadmap: [
-        { id: "alpha", label: "Alpha: Internal eval harness", status: "complete" },
-        { id: "beta", label: "Beta: Pilot reliability sprints", status: "in-progress" },
-        { id: "v1", label: "V1: Self-hosted reliability gateway", status: "planned" },
+        { id: "alpha", label: "Alpha: Internal eval harness and proxy prototype", status: "complete" },
+        { id: "beta", label: "Beta: Closed beta with design partners (mid-Feb 2026)", status: "in-progress" },
+        { id: "v1", label: "V1: Self-hosted governance proxy, generally available", status: "planned" },
     ] as RoadmapItem[],
     bridgeLine: "Pilots can start as a reliability sprint.",
     cta: {
-        text: "Request Startup Brief",
-        href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Startup brief request")}&body=${encodeURIComponent("Hi Chansa,\n\nI'm interested in learning more about NjiraAI.\n\n1. My role / organization:\n2. What interests me:\n3. Any questions:\n\nBest,")}`,
+        text: "Become a Design Partner",
+        href: siteConfig.calendly,
     },
+    ctaSecondary:
+        "Investors and prospective team members welcome. We\u2019re early, small, and building fast.",
 };
 
 // ── Services (/work) ─────────────────────────────────────────────────────────
@@ -238,7 +250,7 @@ export const researchContent = {
             links: [
                 { label: "Read", href: "#reasoning-validation", available: false },
                 { label: "Artifacts", href: "#reasoning-validation", available: false },
-                { label: "Talk", href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Request: Reasoning Validation talk/slides")}`, available: true },
+                { label: "Talk", href: siteConfig.calendly, available: true },
             ],
         },
         {
@@ -249,7 +261,7 @@ export const researchContent = {
             links: [
                 { label: "Read", href: "#lightweight-formal-methods", available: false },
                 { label: "Artifacts", href: "#lightweight-formal-methods", available: false },
-                { label: "Talk", href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Request: Lightweight Formal Methods talk/slides")}`, available: true },
+                { label: "Talk", href: siteConfig.calendly, available: true },
             ],
         },
         {
@@ -260,7 +272,7 @@ export const researchContent = {
             links: [
                 { label: "Read", href: "#token-level-interpretability", available: false },
                 { label: "Artifacts", href: "#token-level-interpretability", available: false },
-                { label: "Talk", href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Request: Token-level Interpretability talk/slides")}`, available: true },
+                { label: "Talk", href: siteConfig.calendly, available: true },
             ],
         },
     ] as ResearchTheme[],
@@ -275,7 +287,7 @@ export const researchContent = {
             "Run eval suite on your agent stack; co-author paper on findings",
         cta: {
             text: "Propose Collaboration",
-            href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Research collaboration proposal")}&body=${encodeURIComponent("Hi Chansa,\n\nI'd like to explore a research collaboration.\n\n1. My background / lab:\n2. Research area of interest:\n3. What I'm hoping to explore together:\n4. Timeline:\n\nBest,")}`,
+            href: siteConfig.calendly,
         },
     },
 };
@@ -302,7 +314,7 @@ export const publications: Publication[] = [
         title: "LLMs-as-Search: token-level framing",
         status: "draft",
         note: "PDF on request",
-        href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Request: LLMs-as-Search draft")}`,
+        href: siteConfig.calendly,
     },
     {
         title: "Finite-Space Constraints (FSC): diagnostics + stress tests",
@@ -367,21 +379,21 @@ export const contactChannels: ContactChannel[] = [
         title: "Clients",
         icon: Calendar,
         description: "Book a discovery call for sprints or advisory.",
-        href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Advisory / sprint inquiry")}&body=${encodeURIComponent("Hi Chansa,\n\nI'm interested in your advisory / sprint services.\n\n1. Company / team:\n2. Current challenge:\n3. What we're hoping to achieve:\n4. Preferred timeline:\n5. Budget range (optional):\n\nBest,")}`,
+        href: siteConfig.calendly,
     },
     {
         id: "investors",
         title: "Investors / Partners",
         icon: MessageSquare,
         description: "Request startup brief or early access to NjiraAI.",
-        href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Startup brief request")}&body=${encodeURIComponent("Hi Chansa,\n\nI'd like to learn more about NjiraAI.\n\n1. My role / fund:\n2. Investment thesis / area of interest:\n3. What I'd like to see (brief, demo, call):\n\nBest,")}`,
+        href: siteConfig.calendly,
     },
     {
         id: "collaborators",
         title: "Collaborators",
         icon: Mail,
         description: "Propose a research project or paper collaboration.",
-        href: `mailto:${siteConfig.email}?subject=${encodeURIComponent("Research collaboration proposal")}&body=${encodeURIComponent("Hi Chansa,\n\nI'd like to explore a research collaboration.\n\n1. My background / lab:\n2. Research area of interest:\n3. What I'm hoping to explore together:\n4. Timeline:\n\nBest,")}`,
+        href: siteConfig.calendly,
     },
 ];
 
@@ -400,7 +412,7 @@ export const pageMetadata = {
     startup: {
         title: "NjiraAI — Startup",
         description:
-            "Safety and reliability infrastructure for agentic systems. NjiraAI validates agent reasoning before actions execute.",
+            "Safety and reliability infrastructure for tool-using AI agents. A governance proxy that intercepts agent tool calls and applies policies in real time.",
     },
     research: {
         title: "Research",

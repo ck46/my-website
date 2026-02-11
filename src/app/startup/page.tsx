@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { njiraContent, pageMetadata, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
@@ -59,10 +58,40 @@ export default function StartupPage() {
                         </li>
                     ))}
                 </ul>
-                <p className="text-sm text-muted-foreground pt-2">
-                    <span className="font-mono text-xs text-primary">WHO:</span>{" "}
-                    {njiraContent.whoThisIsFor}
-                </p>
+            </section>
+
+            {/* Example */}
+            <section className="space-y-4">
+                <h2 className="font-mono text-sm text-muted-foreground border-b border-border pb-2">
+                    Example
+                </h2>
+                <div className="bg-accent/20 p-6 border border-border font-mono text-sm space-y-2">
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-muted-foreground">agent →</span>
+                        <code className="text-foreground">{njiraContent.example.call}</code>
+                        <code className="text-muted-foreground">{njiraContent.example.body}</code>
+                    </div>
+                    <div className="flex items-baseline gap-2">
+                        <span className="text-muted-foreground">proxy →</span>
+                        <span className="text-red-700 font-semibold">{njiraContent.example.result}</span>
+                        <span className="text-muted-foreground">destructive-action policy matched. Trace retained.</span>
+                    </div>
+                </div>
+            </section>
+
+            {/* Who this is for */}
+            <section className="space-y-4">
+                <h2 className="font-mono text-sm text-muted-foreground border-b border-border pb-2">
+                    Who this is for
+                </h2>
+                <ul className="space-y-2 font-mono text-sm">
+                    {njiraContent.whoThisIsFor.map((item, i) => (
+                        <li key={i} className="flex items-start gap-3">
+                            <span className="text-primary shrink-0">→</span>
+                            <span className="text-muted-foreground">{item}</span>
+                        </li>
+                    ))}
+                </ul>
             </section>
 
             {/* Roadmap */}
@@ -95,18 +124,13 @@ export default function StartupPage() {
                         </div>
                     ))}
                 </div>
-                <p className="text-xs font-mono text-muted-foreground">
-                    <Link href="/work" className="hover:text-foreground transition-colors underline underline-offset-2">
-                        {njiraContent.bridgeLine}
-                    </Link>
-                </p>
             </section>
 
             {/* CTA */}
             <section className="space-y-4 pt-4 border-t border-border">
-                <h2 className="font-mono text-lg font-medium">Interested in piloting or investing?</h2>
+                <h2 className="font-mono text-lg font-medium">Interested?</h2>
                 <p className="text-sm text-muted-foreground max-w-lg">
-                    We&apos;re looking for design partners and early investors aligned with AI safety infrastructure. Request our startup brief to learn more.
+                    We&apos;re looking for 2–3 design partners to run pilots against real agent stacks. If you&apos;re deploying agents and want better control over what they do, I&apos;d like to talk.
                 </p>
                 <a
                     href={njiraContent.cta.href}
@@ -114,6 +138,9 @@ export default function StartupPage() {
                 >
                     {njiraContent.cta.text}
                 </a>
+                <p className="text-xs font-mono text-muted-foreground pt-2">
+                    {njiraContent.ctaSecondary}
+                </p>
             </section>
         </div>
     );
