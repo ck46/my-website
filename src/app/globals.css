@@ -20,7 +20,8 @@
 
     --muted: 35 15% 70%;
     /* #b5b1a9 */
-    --muted-foreground: 30 10% 35%;
+    --muted-foreground: 30 12% 30%;
+    /* ↑ Increased contrast from 35% → 30% lightness for better readability */
 
     --accent: 35 20% 78%;
     /* #cecac2 */
@@ -72,5 +73,41 @@
   h5,
   h6 {
     @apply font-mono tracking-tight;
+  }
+
+  /* ── Keyboard focus states (accessibility) ──────────────────── */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer components {
+
+  /* ── Hoverable card ──────────────────────────────────────────── */
+  .card-hover {
+    @apply transition-all duration-200;
+  }
+
+  .card-hover:hover {
+    @apply border-primary/40 shadow-sm;
+    transform: translateY(-1px);
+  }
+
+  /* ── Status badges ───────────────────────────────────────────── */
+  .status-complete {
+    @apply text-emerald-800;
+  }
+
+  .status-in-progress {
+    @apply text-blue-700;
+  }
+
+  .status-planned {
+    @apply text-muted-foreground;
   }
 }

@@ -1,13 +1,12 @@
 import Link from "next/link";
-import { siteConfig } from "@/data/content";
-import { Github, Linkedin } from "lucide-react";
+import { siteConfig } from "@/data/site";
 
 export function Footer() {
     return (
         <footer className="w-full pt-12 mt-12 mb-6 border-t border-border flex flex-col md:flex-row justify-between items-center gap-6 font-mono text-xs text-muted-foreground">
             <div className="text-center md:text-left">
                 <p>
-                    {siteConfig.name} <span className="text-zinc-700">|</span> {siteConfig.title}
+                    {siteConfig.name} <span className="text-border">|</span> {siteConfig.title}
                 </p>
             </div>
 

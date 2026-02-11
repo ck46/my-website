@@ -28,7 +28,9 @@ export function Navbar() {
                         href={item.href}
                         className={cn(
                             "hover:text-foreground transition-colors",
-                            pathname === item.href ? "text-foreground underline decoration-zinc-500 underline-offset-4" : "text-muted-foreground"
+                            pathname === item.href
+                                ? "text-foreground font-semibold underline decoration-primary underline-offset-4 decoration-2"
+                                : "text-muted-foreground"
                         )}
                     >
                         {item.title}
