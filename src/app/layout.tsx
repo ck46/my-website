@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/site";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 
@@ -15,6 +17,9 @@ export const metadata: Metadata = {
     },
     description: siteConfig.description,
     metadataBase: new URL(siteConfig.url),
+    icons: {
+        icon: "/logo_2.png",
+    },
     openGraph: {
         type: "website",
         locale: "en_US",
@@ -22,6 +27,7 @@ export const metadata: Metadata = {
         title: siteConfig.title,
         description: siteConfig.description,
         siteName: siteConfig.name,
+        images: [{ url: "/logo_2.png" }],
     },
     twitter: {
         card: "summary_large_image",
@@ -44,6 +50,8 @@ export default function RootLayout({
                     <main className="flex-1 py-12">{children}</main>
                     <Footer />
                 </div>
+                <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );

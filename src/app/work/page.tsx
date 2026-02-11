@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { services, miniCaseSnapshots, deliverables, pageMetadata, siteConfig } from "@/data/site";
 
 export const metadata: Metadata = {
