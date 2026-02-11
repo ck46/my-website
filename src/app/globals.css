@@ -4,36 +4,35 @@
 
 @layer base {
   :root {
-    /* "Warm Paper" / "Sepia Engineering" Theme */
-    --background: 35 30% 92%;
-    /* #f5efe6 - Light Warm Beige */
-    --foreground: 30 15% 20%;
-    /* #3b3631 - Dark Warm Grey/Brown */
+    /* "Darker Sepia" / "Kraft Paper" Theme */
+    --background: 35 25% 82%;
+    /* #dcd5ca - Darker Beige/Kraft */
+    --foreground: 30 20% 15%;
+    /* #1e1b19 - Very Dark Brown */
 
-    --primary: 25 70% 45%;
-    /* #c25e22 - Rust/Leather Accent */
+    --primary: 25 70% 40%;
+    /* #ad541e - Deep Rust */
     --primary-foreground: 35 30% 96%;
 
-    --secondary: 35 15% 85%;
-    /* #e6e1d6 - Darker Beige for cards */
-    --secondary-foreground: 30 15% 20%;
+    --secondary: 35 15% 75%;
+    /* #c2beb6 - Darker Beige for cards */
+    --secondary-foreground: 30 20% 15%;
 
-    --muted: 35 15% 80%;
-    /* #dad5cc - Muted Beige */
-    --muted-foreground: 30 10% 40%;
-    /* #6b6661 */
+    --muted: 35 15% 70%;
+    /* #b5b1a9 */
+    --muted-foreground: 30 10% 35%;
 
-    --accent: 35 20% 88%;
-    /* #ebe6dd */
-    --accent-foreground: 30 15% 20%;
+    --accent: 35 20% 78%;
+    /* #cecac2 */
+    --accent-foreground: 30 20% 15%;
 
     --destructive: 0 70% 50%;
     --destructive-foreground: 35 30% 96%;
 
-    --border: 30 10% 80%;
-    /* #d1cec9 */
-    --input: 30 10% 80%;
-    --ring: 25 70% 45%;
+    --border: 30 10% 70%;
+    /* #b3b0ad */
+    --input: 30 10% 70%;
+    --ring: 25 70% 40%;
 
     --radius: 0rem;
     /* Keep Sharp corners */
