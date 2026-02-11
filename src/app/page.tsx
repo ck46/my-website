@@ -1,6 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, Terminal } from "lucide-react";
-import { heroContent, audiences, njiraContent } from "@/data/content";
+import { ArrowRight } from "lucide-react";
+import {
+    heroContent,
+    audiences,
+    njiraContent,
+    credibilityLinks,
+    researchLogEntries,
+} from "@/data/site";
 
 export default function Home() {
     return (
@@ -24,18 +30,33 @@ export default function Home() {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 font-mono text-sm">
-                    <Link
-                        href="/contact"
+                    <a
+                        href={heroContent.ctaPrimary.href}
                         className="inline-flex items-center justify-center px-4 py-2 border border-foreground bg-foreground text-background hover:bg-background hover:text-foreground transition-colors"
                     >
-                        ./book_call.sh
-                    </Link>
+                        {heroContent.ctaPrimary.text}
+                    </a>
                     <Link
-                        href="/startup"
+                        href={heroContent.ctaSecondary.href}
                         className="inline-flex items-center justify-center px-4 py-2 border border-border hover:border-foreground transition-colors"
                     >
-                        cat njira_deck.md
+                        {heroContent.ctaSecondary.text}
                     </Link>
+                </div>
+
+                {/* Credibility Strip */}
+                <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-muted-foreground border-t border-border pt-4">
+                    {credibilityLinks.map((link) => (
+                        <a
+                            key={link.label}
+                            href={link.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="hover:text-foreground transition-colors underline underline-offset-2 decoration-border hover:decoration-foreground"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
                 </div>
             </section>
 
@@ -49,7 +70,7 @@ export default function Home() {
                         <Link
                             key={audience.id}
                             href={audience.href}
-                            className="group block p-4 border border-transparent hover:border-border hover:bg-zinc-900/50 transition-all"
+                            className="group block p-4 border border-transparent hover:border-border hover:bg-accent/30 transition-all"
                         >
                             <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-8">
                                 <span className="font-mono text-primary min-w-[120px] group-hover:underline">
@@ -70,28 +91,43 @@ export default function Home() {
                     <h2 className="font-mono text-sm text-muted-foreground">
                         System Process: NjiraAI
                     </h2>
-                    <span className="text-xs font-mono px-2 py-0.5 bg-zinc-800 text-zinc-300 rounded-sm">PID: 2026</span>
+                    <span className="text-xs font-mono px-2 py-0.5 bg-secondary text-secondary-foreground">PID: 2026</span>
                 </div>
 
-                <div className="bg-zinc-900/30 p-6 border border-border font-mono text-sm space-y-4">
+                <div className="bg-accent/20 p-6 border border-border font-mono text-sm space-y-4">
                     <div className="grid grid-cols-[100px_1fr] gap-4">
-                        <span className="text-zinc-500">Subject:</span>
+                        <span className="text-muted-foreground">Subject:</span>
                         <span className="text-foreground">{njiraContent.tagline}</span>
 
-                        <span className="text-zinc-500">Problem:</span>
+                        <span className="text-muted-foreground">Problem:</span>
                         <span className="text-muted-foreground">{njiraContent.problem}</span>
 
-                        <span className="text-zinc-500">Status:</span>
+                        <span className="text-muted-foreground">Status:</span>
                         <div className="space-y-1">
-                            {njiraContent.roadmap.map((item, i) => (
-                                <div key={i} className={item.includes("Complete") ? "text-emerald-800" : "text-blue-700"}>
-                                    [{item.includes("Complete") ? "OK" : ".."}] {item}
-                                </div>
+                            {njiraContent.roadmap.map((item) => (
+                                <Link
+                                    key={item.id}
+                                    href={`/startup#${item.id}`}
+                                    className={`block hover:underline ${item.status === "complete"
+                                            ? "status-complete"
+                                            : item.status === "in-progress"
+                                                ? "status-in-progress"
+                                                : "status-planned"
+                                        }`}
+                                >
+                                    [{item.status === "complete" ? "OK" : item.status === "in-progress" ? ".." : "  "}] {item.label}
+                                </Link>
                             ))}
                         </div>
                     </div>
 
-                    <div className="pt-4 border-t border-zinc-800">
+                    <div className="pt-4 border-t border-border text-xs text-muted-foreground">
+                        <Link href="/work" className="hover:text-foreground transition-colors">
+                            {njiraContent.bridgeLine}
+                        </Link>
+                    </div>
+
+                    <div className="pt-2">
                         <Link href="/startup" className="text-primary hover:underline inline-flex items-center">
                             View Full Process <ArrowRight className="ml-2 h-3 w-3" />
                         </Link>
@@ -105,19 +141,17 @@ export default function Home() {
                     Tail of /var/log/research
                 </h2>
                 <div className="space-y-4 font-mono text-sm">
-                    <div className="flex gap-4 p-3 hover:bg-zinc-900/50 transition-colors">
-                        <span className="text-zinc-500 shrink-0">2026-02-10</span>
-                        <span className="text-foreground">Analyzing chain-of-thought failure modes in strict reasoning tasks</span>
-                    </div>
-                    <div className="flex gap-4 p-3 hover:bg-zinc-900/50 transition-colors">
-                        <span className="text-zinc-500 shrink-0">2026-02-01</span>
-                        <span className="text-foreground">Evaluating lightweight formal verification methods for agent loops</span>
-                    </div>
-                    <div className="flex gap-4 p-3 hover:bg-zinc-900/50 transition-colors">
-                        <span className="text-zinc-500 shrink-0">2026-01-15</span>
-                        <span className="text-foreground">Initial commit: Agentic Eval Harness (v0.1.0)</span>
-                    </div>
-                    <Link href="/research" className="inline-block mt-4 text-zinc-500 hover:text-foreground">
+                    {researchLogEntries.map((entry) => (
+                        <Link
+                            key={entry.date}
+                            href={entry.href}
+                            className="flex gap-4 p-3 hover:bg-accent/30 transition-colors group"
+                        >
+                            <span className="text-muted-foreground shrink-0">{entry.date}</span>
+                            <span className="text-foreground group-hover:underline">{entry.text}</span>
+                        </Link>
+                    ))}
+                    <Link href="/research" className="inline-block mt-4 text-muted-foreground hover:text-foreground transition-colors">
                         ... view more logs
                     </Link>
                 </div>
