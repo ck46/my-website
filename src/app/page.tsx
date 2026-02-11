@@ -84,7 +84,7 @@ export default function Home() {
                         <span className="text-zinc-500">Status:</span>
                         <div className="space-y-1">
                             {njiraContent.roadmap.map((item, i) => (
-                                <div key={i} className={item.includes("Complete") ? "text-green-500" : "text-zinc-400"}>
+                                <div key={i} className={item.includes("Complete") ? "text-emerald-800" : "text-blue-700"}>
                                     [{item.includes("Complete") ? "OK" : ".."}] {item}
                                 </div>
                             ))}
