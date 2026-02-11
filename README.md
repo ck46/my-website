@@ -65,10 +65,15 @@ yarn preview
 - [Hugging Face Hub API](https://huggingface.co/docs/hub/api)
 - [Vercel Analytics](https://vercel.com/analytics)
 
-## License
+## Licensing
 
-This project is licensed under the [MIT License](LICENSE).
+This project operates under a split-license model:
+
+-   **Code**: The source code (React components, utility logic, build scripts) is licensed under the **MIT License**. See [LICENSE](LICENSE).
+-   **Content & Brand**: All website copy, images, "NjiraAI" product materials, and specific data files (e.g., `src/data/content.ts`) are **Copyright © 2026 CK. All Rights Reserved**. See [CONTENT_LICENSE](CONTENT_LICENSE.md).
+
+If you fork this repo, please remove all proprietary content and branding. If you want to reuse any content, please contact me.
 
 ---
 
-© 2025 Chansa Kabwe (ck46). All rights reserved.
+© 2026 Chansa Kabwe (ck46). All rights reserved.
