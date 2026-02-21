@@ -47,6 +47,8 @@ export interface FeaturedCoverageItem {
     publishedDate: string; // YYYY-MM-DD
     summary: string;
     href: string;
+    thumbnailUrl: string;
+    thumbnailAlt: string;
 }
 
 export const featuredCoverage: FeaturedCoverageItem[] = [
@@ -57,6 +59,9 @@ export const featuredCoverage: FeaturedCoverageItem[] = [
         summary:
             "Profile feature highlighting Chansa Kabwe's learning journey and perspective on coding.",
         href: "https://www.ocw-openmatters.org/2023/04/07/coding-the-future-with-mit-opencourseware/",
+        thumbnailUrl:
+            "https://www.ocw-openmatters.org/wp-content/uploads/2023/04/1-w7EHewi1oJSpMw2iTQouGA-1024x751.webp",
+        thumbnailAlt: "Featured image from the MIT OpenCourseWare profile article.",
     },
 ];
 
@@ -74,6 +79,15 @@ export const heroContent = {
         text: "cat startup_brief.md",
         href: "/startup",
     },
+};
+
+// ── Favorite quote (homepage) ───────────────────────────────────────────────
+
+export const favoriteQuote = {
+    text:
+        "The only way of discovering the limits of the possible is to venture a little way past them into the impossible.",
+    author: "Sir Arthur C. Clarke",
+    source: "Profiles of the Future (1962)",
 };
 
 // ── Audiences (homepage directory listing) ───────────────────────────────────

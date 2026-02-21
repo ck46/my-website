@@ -1,13 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import {
     heroContent,
+    favoriteQuote,
     audiences,
     njiraContent,
     credibilityLinks,
     featuredCoverage,
     researchLogEntries,
 } from "@/data/site";
+
+const publishedDateFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC",
+});
 
 export default function Home() {
     return (
@@ -45,6 +54,15 @@ export default function Home() {
                     </Link>
                 </div>
 
+                <figure className="border-l-2 border-primary pl-4 max-w-3xl">
+                    <blockquote className="text-base md:text-lg leading-relaxed text-foreground">
+                        &ldquo;{favoriteQuote.text}&rdquo;
+                    </blockquote>
+                    <figcaption className="mt-2 text-xs font-mono text-muted-foreground">
+                        {favoriteQuote.author} <span className="text-border">|</span> {favoriteQuote.source}
+                    </figcaption>
+                </figure>
+
                 {/* Credibility Strip */}
                 <div className="flex flex-wrap gap-x-6 gap-y-2 text-xs font-mono text-muted-foreground border-t border-border pt-4">
                     {credibilityLinks.map((link) => (
@@ -68,26 +86,40 @@ export default function Home() {
                 </h2>
                 <div className="grid gap-4">
                     {featuredCoverage.map((item) => (
-                        <article key={item.href} className="p-5 border border-border bg-accent/20 space-y-3">
-                            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground">
-                                <span>{item.source}</span>
-                                <span className="text-border">|</span>
-                                <time dateTime={item.publishedDate}>{item.publishedDate}</time>
+                        <article key={item.href} className="border border-border bg-accent/20 overflow-hidden">
+                            <div className="grid md:grid-cols-[220px_1fr]">
+                                <Image
+                                    src={item.thumbnailUrl}
+                                    alt={item.thumbnailAlt}
+                                    width={1024}
+                                    height={751}
+                                    sizes="(min-width: 768px) 220px, 100vw"
+                                    className="h-44 w-full md:h-full object-cover border-b md:border-b-0 md:border-r border-border"
+                                />
+                                <div className="p-5 space-y-3">
+                                    <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground">
+                                        <span>{item.source}</span>
+                                        <span className="text-border">|</span>
+                                        <time dateTime={item.publishedDate}>
+                                            {publishedDateFormatter.format(new Date(`${item.publishedDate}T00:00:00Z`))}
+                                        </time>
+                                    </div>
+                                    <h3 className="text-lg font-mono font-semibold leading-tight">
+                                        {item.title}
+                                    </h3>
+                                    <p className="text-sm text-muted-foreground max-w-2xl">
+                                        {item.summary}
+                                    </p>
+                                    <a
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noreferrer"
+                                        className="inline-flex items-center text-sm font-mono text-primary hover:underline"
+                                    >
+                                        Read article <ArrowRight className="ml-2 h-3 w-3" />
+                                    </a>
+                                </div>
                             </div>
-                            <h3 className="text-lg font-mono font-semibold leading-tight">
-                                {item.title}
-                            </h3>
-                            <p className="text-sm text-muted-foreground max-w-2xl">
-                                {item.summary}
-                            </p>
-                            <a
-                                href={item.href}
-                                target="_blank"
-                                rel="noreferrer"
-                                className="inline-flex items-center text-sm font-mono text-primary hover:underline"
-                            >
-                                Read article <ArrowRight className="ml-2 h-3 w-3" />
-                            </a>
                         </article>
                     ))}
                 </div>
