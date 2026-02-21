@@ -5,6 +5,7 @@ import {
     audiences,
     njiraContent,
     credibilityLinks,
+    featuredCoverage,
     researchLogEntries,
 } from "@/data/site";
 
@@ -56,6 +57,38 @@ export default function Home() {
                         >
                             {link.label}
                         </a>
+                    ))}
+                </div>
+            </section>
+
+            {/* Featured Coverage */}
+            <section className="space-y-6">
+                <h2 className="font-mono text-sm text-muted-foreground border-b border-border pb-2">
+                    Featured profile
+                </h2>
+                <div className="grid gap-4">
+                    {featuredCoverage.map((item) => (
+                        <article key={item.href} className="p-5 border border-border bg-accent/20 space-y-3">
+                            <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-muted-foreground">
+                                <span>{item.source}</span>
+                                <span className="text-border">|</span>
+                                <time dateTime={item.publishedDate}>{item.publishedDate}</time>
+                            </div>
+                            <h3 className="text-lg font-mono font-semibold leading-tight">
+                                {item.title}
+                            </h3>
+                            <p className="text-sm text-muted-foreground max-w-2xl">
+                                {item.summary}
+                            </p>
+                            <a
+                                href={item.href}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center text-sm font-mono text-primary hover:underline"
+                            >
+                                Read article <ArrowRight className="ml-2 h-3 w-3" />
+                            </a>
+                        </article>
                     ))}
                 </div>
             </section>

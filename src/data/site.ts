@@ -33,9 +33,31 @@ export const credibilityLinks = [
     { label: "GitHub", href: siteConfig.socials.github },
     { label: "LinkedIn", href: siteConfig.socials.linkedin },
     { label: "HuggingFace", href: siteConfig.socials.huggingface },
+    { label: "MIT OpenCourseWare Profile", href: "https://www.ocw-openmatters.org/2023/04/07/coding-the-future-with-mit-opencourseware/" },
     // Uncomment when available:
     // { label: "Google Scholar", href: siteConfig.socials.scholar },
     // { label: "arXiv", href: siteConfig.socials.arxiv },
+];
+
+// ── Featured coverage (homepage preview cards) ──────────────────────────────
+
+export interface FeaturedCoverageItem {
+    source: string;
+    title: string;
+    publishedDate: string; // YYYY-MM-DD
+    summary: string;
+    href: string;
+}
+
+export const featuredCoverage: FeaturedCoverageItem[] = [
+    {
+        source: "MIT Open Matters (MIT OpenCourseWare)",
+        title: "Coding the future with MIT OpenCourseWare",
+        publishedDate: "2023-04-07",
+        summary:
+            "Profile feature highlighting Chansa Kabwe's learning journey and perspective on coding.",
+        href: "https://www.ocw-openmatters.org/2023/04/07/coding-the-future-with-mit-opencourseware/",
+    },
 ];
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
