@@ -18,6 +18,7 @@ export const siteConfig = {
     url: "https://ck46.com",
     calendly: "https://calendly.com/chansa-megacog/30min",
     startupSite: "https://njira.ai",
+    startupBookDemo: "https://njira.ai/book",
     socials: {
         github: "https://github.com/ck46",
         huggingface: "https://huggingface.co/ck46",
@@ -152,6 +153,7 @@ export interface RoadmapItem {
 export const njiraContent = {
     title: "NjiraAI",
     tagline: "Safety and reliability infrastructure for tool-using AI agents.",
+    website: siteConfig.startupSite,
     problem:
         "Agents fail at the action layer. They call the wrong API, pass malformed arguments, loop indefinitely, or take destructive actions with no human in the loop. There\u2019s no inspection point between what an agent decides and what it actually does.",
     solution:
@@ -180,8 +182,8 @@ export const njiraContent = {
     ] as RoadmapItem[],
     bridgeLine: "Pilots can start as a reliability sprint.",
     cta: {
-        text: "Become a Design Partner",
-        href: siteConfig.calendly,
+        text: "Book a Demo",
+        href: siteConfig.startupBookDemo,
     },
     ctaSecondary:
         "Investors and prospective team members welcome. We\u2019re early, small, and building fast.",

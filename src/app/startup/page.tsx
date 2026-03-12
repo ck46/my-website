@@ -25,6 +25,17 @@ export default function StartupPage() {
                 <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl">
                     {njiraContent.tagline}
                 </p>
+                <p className="text-xs font-mono text-muted-foreground">
+                    Website:{" "}
+                    <a
+                        href={njiraContent.website}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-primary hover:underline"
+                    >
+                        njira.ai
+                    </a>
+                </p>
             </section>
 
             {/* Problem + Solution */}
@@ -134,6 +145,8 @@ export default function StartupPage() {
                 </p>
                 <a
                     href={njiraContent.cta.href}
+                    target="_blank"
+                    rel="noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 bg-primary text-primary-foreground font-mono text-sm hover:bg-primary/90 transition-colors"
                 >
                     {njiraContent.cta.text}
