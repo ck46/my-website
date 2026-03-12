@@ -17,6 +17,7 @@ export const siteConfig = {
         "Building safety and reliability infrastructure for agentic AI systems.",
     url: "https://ck46.com",
     calendly: "https://calendly.com/chansa-megacog/30min",
+    startupSite: "https://njira.ai",
     socials: {
         github: "https://github.com/ck46",
         huggingface: "https://huggingface.co/ck46",
@@ -91,71 +92,6 @@ export const favoriteQuote = {
     source: "Profiles of the Future (1962)",
 };
 
-// ── Favorite projects (homepage) ────────────────────────────────────────────
-
-export interface ProjectLink {
-    label: string;
-    href: string | null;
-}
-
-export interface FavoriteProject {
-    id: string;
-    title: string;
-    summary: string;
-    status: "live" | "in-progress" | "placeholder";
-    platforms: string[];
-    links: ProjectLink[];
-}
-
-export const favoriteProjects: FavoriteProject[] = [
-    {
-        id: "njiraai-proxy",
-        title: "NjiraAI Governance Proxy",
-        summary:
-            "Policy-gated control layer that can allow, block, or modify agent tool calls before execution.",
-        status: "in-progress",
-        platforms: ["Web", "Startup"],
-        links: [
-            { label: "Startup page", href: "/startup" },
-            { label: "Request access", href: siteConfig.calendly },
-        ],
-    },
-    {
-        id: "agentic-eval-harness",
-        title: "Agentic Eval Harness",
-        summary:
-            "Evaluation and regression harness for monitoring reliability drift across prompts, tools, and model versions.",
-        status: "in-progress",
-        platforms: ["GitHub"],
-        links: [
-            { label: "GitHub profile", href: siteConfig.socials.github },
-            { label: "Public repo (placeholder)", href: null },
-        ],
-    },
-    {
-        id: "hf-model-workbench",
-        title: "Model Workbench",
-        summary:
-            "Public model experiments, prototypes, and release artifacts shared through Hugging Face.",
-        status: "live",
-        platforms: ["Web", "Hugging Face"],
-        links: [
-            { label: "Hugging Face", href: siteConfig.socials.huggingface },
-        ],
-    },
-    {
-        id: "mobile-companion",
-        title: "Mobile Companion (Placeholder)",
-        summary:
-            "Planned mobile interface for monitoring agent runs and reviewing key reliability signals.",
-        status: "placeholder",
-        platforms: ["App Store"],
-        links: [
-            { label: "App Store link (placeholder)", href: null },
-        ],
-    },
-];
-
 // ── Audiences (homepage directory listing) ───────────────────────────────────
 
 export interface Audience {
@@ -180,7 +116,7 @@ export const audiences: Audience[] = [
             "Build-with-you Advisory",
         ],
         cta: "View Services",
-        href: "/work",
+        href: "/consult",
     },
     {
         id: "investors",
@@ -511,6 +447,16 @@ export const pageMetadata = {
         description:
             "Advisory sprints, risk reviews, and build-with-you engagements for AI safety and reliability.",
     },
+    consult: {
+        title: "Consult",
+        description:
+            "Advisory sprints, risk reviews, and build-with-you engagements for AI safety and reliability.",
+    },
+    projects: {
+        title: "Projects",
+        description:
+            "Selected GitHub projects across AI systems, tooling, and experiments.",
+    },
     startup: {
         title: "NjiraAI — Startup",
         description:
@@ -519,7 +465,7 @@ export const pageMetadata = {
     research: {
         title: "Research",
         description:
-            "LLM reasoning diagnostics, lightweight formal methods, and evaluation tooling for agentic AI.",
+            "Public research agenda on token-space search, agent governance, and foundations of intelligence.",
     },
     contact: {
         title: "Contact",
