@@ -151,7 +151,15 @@ export default function Home() {
             <section className="space-y-6">
                 <div className="flex items-center justify-between border-b border-border pb-2">
                     <h2 className="font-mono text-sm text-muted-foreground">
-                        System Process: NjiraAI
+                        System Process:{" "}
+                        <a
+                            href={njiraContent.website}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-foreground hover:underline"
+                        >
+                            NjiraAI
+                        </a>
                     </h2>
                     <span className="text-xs font-mono px-2 py-0.5 bg-secondary text-secondary-foreground">PID: 2026</span>
                 </div>
