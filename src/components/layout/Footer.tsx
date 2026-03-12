@@ -20,6 +20,9 @@ export function Footer() {
                 <Link href={siteConfig.socials.linkedin} target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
                     LINKEDIN
                 </Link>
+                <Link href={siteConfig.socials.scholar} target="_blank" rel="noreferrer" className="hover:text-foreground transition-colors">
+                    SCHOLAR
+                </Link>
             </div>
         </footer>
     );

@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import {
     heroContent,
     favoriteQuote,
+    favoriteProjects,
     audiences,
     njiraContent,
     credibilityLinks,
@@ -24,12 +25,9 @@ export default function Home() {
             {/* Hero Section */}
             <section className="space-y-8">
                 <div className="space-y-4">
-                    <div className="inline-flex items-center space-x-2 text-xs font-mono text-green-500">
-                        <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                        </span>
-                        <span>SYSTEM ONLINE</span>
+                    <div className="inline-flex items-center space-x-2 text-xs font-mono text-primary">
+                        <span className="inline-flex h-2 w-2 rounded-full bg-primary"></span>
+                        <span>{heroContent.eyebrow}</span>
                     </div>
                     <h1 className="text-3xl md:text-4xl font-mono font-medium tracking-tight">
                         {heroContent.headline}
@@ -119,6 +117,74 @@ export default function Home() {
                                         Read article <ArrowRight className="ml-2 h-3 w-3" />
                                     </a>
                                 </div>
+                            </div>
+                        </article>
+                    ))}
+                </div>
+            </section>
+
+            {/* Favorite Projects */}
+            <section className="space-y-6">
+                <h2 className="font-mono text-sm text-muted-foreground border-b border-border pb-2">
+                    Favorite projects
+                </h2>
+                <p className="text-sm text-muted-foreground max-w-3xl">
+                    A few projects I care about across startup, open-source, and product surfaces.
+                </p>
+                <div className="grid md:grid-cols-2 gap-4">
+                    {favoriteProjects.map((project) => (
+                        <article key={project.id} className="p-5 border border-border bg-accent/20 space-y-4">
+                            <div className="flex items-start justify-between gap-4">
+                                <h3 className="text-base font-mono font-semibold">{project.title}</h3>
+                                <span
+                                    className={`shrink-0 inline-flex px-2 py-0.5 text-[10px] uppercase font-mono ${project.status === "live"
+                                        ? "bg-emerald-500/10 text-emerald-800"
+                                        : project.status === "in-progress"
+                                            ? "bg-blue-500/10 text-blue-700"
+                                            : "bg-secondary text-secondary-foreground"
+                                        }`}
+                                >
+                                    {project.status === "in-progress" ? "in progress" : project.status}
+                                </span>
+                            </div>
+
+                            <p className="text-sm text-muted-foreground">{project.summary}</p>
+
+                            <div className="flex flex-wrap gap-2">
+                                {project.platforms.map((platform) => (
+                                    <span
+                                        key={platform}
+                                        className="inline-flex items-center px-2 py-0.5 text-[10px] font-mono border border-border bg-background/60"
+                                    >
+                                        {platform}
+                                    </span>
+                                ))}
+                            </div>
+
+                            <div className="flex flex-wrap gap-4 text-xs font-mono">
+                                {project.links.map((link) =>
+                                    link.href ? (
+                                        link.href.startsWith("/") ? (
+                                            <Link key={link.label} href={link.href} className="text-primary hover:underline">
+                                                {link.label}
+                                            </Link>
+                                        ) : (
+                                            <a
+                                                key={link.label}
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noreferrer"
+                                                className="text-primary hover:underline"
+                                            >
+                                                {link.label}
+                                            </a>
+                                        )
+                                    ) : (
+                                        <span key={link.label} className="text-muted-foreground">
+                                            {link.label}
+                                        </span>
+                                    )
+                                )}
                             </div>
                         </article>
                     ))}

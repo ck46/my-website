@@ -21,8 +21,8 @@ export const siteConfig = {
         github: "https://github.com/ck46",
         huggingface: "https://huggingface.co/ck46",
         linkedin: "https://www.linkedin.com/in/ck46",
+        scholar: "https://scholar.google.com/citations?user=VZr0GMwAAAAJ&hl=en",
         // Add when available:
-        // scholar: "https://scholar.google.com/citations?user=...",
         // arxiv: "https://arxiv.org/a/...",
     },
 };
@@ -33,9 +33,9 @@ export const credibilityLinks = [
     { label: "GitHub", href: siteConfig.socials.github },
     { label: "LinkedIn", href: siteConfig.socials.linkedin },
     { label: "HuggingFace", href: siteConfig.socials.huggingface },
+    { label: "Google Scholar", href: siteConfig.socials.scholar },
     { label: "MIT OpenCourseWare Profile", href: "https://www.ocw-openmatters.org/2023/04/07/coding-the-future-with-mit-opencourseware/" },
-    // Uncomment when available:
-    // { label: "Google Scholar", href: siteConfig.socials.scholar },
+    // Add when available:
     // { label: "arXiv", href: siteConfig.socials.arxiv },
 ];
 
@@ -68,9 +68,10 @@ export const featuredCoverage: FeaturedCoverageItem[] = [
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 export const heroContent = {
-    headline: "Ship safer, more reliable agentic AI systems.",
+    eyebrow: "Hi, I'm Chansa.",
+    headline: "I build safer, more reliable agentic AI systems.",
     subhead:
-        "Engineering leader focused on reasoning validation, evaluation harnesses, and production-grade guardrails — so teams can deploy agents with measurable reliability and safer behavior.",
+        "I split my time between client delivery, building NjiraAI, and research on reasoning validation so teams can deploy agents with more confidence.",
     ctaPrimary: {
         text: "./book_call.sh",
         href: siteConfig.calendly,
@@ -89,6 +90,71 @@ export const favoriteQuote = {
     author: "Sir Arthur C. Clarke",
     source: "Profiles of the Future (1962)",
 };
+
+// ── Favorite projects (homepage) ────────────────────────────────────────────
+
+export interface ProjectLink {
+    label: string;
+    href: string | null;
+}
+
+export interface FavoriteProject {
+    id: string;
+    title: string;
+    summary: string;
+    status: "live" | "in-progress" | "placeholder";
+    platforms: string[];
+    links: ProjectLink[];
+}
+
+export const favoriteProjects: FavoriteProject[] = [
+    {
+        id: "njiraai-proxy",
+        title: "NjiraAI Governance Proxy",
+        summary:
+            "Policy-gated control layer that can allow, block, or modify agent tool calls before execution.",
+        status: "in-progress",
+        platforms: ["Web", "Startup"],
+        links: [
+            { label: "Startup page", href: "/startup" },
+            { label: "Request access", href: siteConfig.calendly },
+        ],
+    },
+    {
+        id: "agentic-eval-harness",
+        title: "Agentic Eval Harness",
+        summary:
+            "Evaluation and regression harness for monitoring reliability drift across prompts, tools, and model versions.",
+        status: "in-progress",
+        platforms: ["GitHub"],
+        links: [
+            { label: "GitHub profile", href: siteConfig.socials.github },
+            { label: "Public repo (placeholder)", href: null },
+        ],
+    },
+    {
+        id: "hf-model-workbench",
+        title: "Model Workbench",
+        summary:
+            "Public model experiments, prototypes, and release artifacts shared through Hugging Face.",
+        status: "live",
+        platforms: ["Web", "Hugging Face"],
+        links: [
+            { label: "Hugging Face", href: siteConfig.socials.huggingface },
+        ],
+    },
+    {
+        id: "mobile-companion",
+        title: "Mobile Companion (Placeholder)",
+        summary:
+            "Planned mobile interface for monitoring agent runs and reviewing key reliability signals.",
+        status: "placeholder",
+        platforms: ["App Store"],
+        links: [
+            { label: "App Store link (placeholder)", href: null },
+        ],
+    },
+];
 
 // ── Audiences (homepage directory listing) ───────────────────────────────────
 
