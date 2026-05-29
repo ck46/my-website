@@ -17,54 +17,30 @@ export interface ProjectConfig {
 export const projectsPageConfig = {
     title: "/projects",
     intro:
-        "Selected public repositories from GitHub that represent work I care about right now.",
-    sourceNote: "Source: GitHub profile snapshot (March 12, 2026).",
+        "Public projects I'm running, plus the top GitHub repositories from my profile.",
+    sourceNote: "Source: GitHub profile snapshot (May 29, 2026).",
     sectionTitle: "Top GitHub projects",
 };
 
 export const projectsConfig: ProjectConfig[] = [
     {
-        id: "neuralisp",
-        name: "neuralisp",
+        id: "llms-as-token-search",
+        name: "llms-as-token-search",
         description:
-            "Modular machine learning framework for Common Lisp with tensor ops, layers, optimizers, and loss functions.",
-        stars: 21,
+            "Companion repo for the AMLDS 2026 paper. Language models as probabilistic search agents over token space.",
+        stars: 0,
         forks: 0,
-        language: "Common Lisp",
-        updatedDate: "2025-11-10",
+        language: "Python",
+        updatedDate: "2026-04-30",
         links: [
-            { label: "GitHub repo", href: "https://github.com/ck46/neuralisp" },
-        ],
-    },
-    {
-        id: "black-stone",
-        name: "black-stone",
-        description:
-            "Specification and implementation of Quantum Common Lisp for gate-model quantum computers.",
-        stars: 1,
-        forks: 0,
-        language: "Common Lisp",
-        updatedDate: "2023-06-16",
-        links: [
-            { label: "GitHub repo", href: "https://github.com/ck46/black-stone" },
-        ],
-    },
-    {
-        id: "snn-ml",
-        name: "snn-ml",
-        description: "Spiking neural networks experiments and tooling in Common Lisp.",
-        stars: 1,
-        forks: 1,
-        language: "Common Lisp",
-        updatedDate: "2018-02-22",
-        links: [
-            { label: "GitHub repo", href: "https://github.com/ck46/snn-ml" },
+            { label: "GitHub repo", href: "https://github.com/ck46/llms-as-token-search" },
         ],
     },
     {
         id: "slidesmith-ai",
         name: "slidesmith-ai",
-        description: "No public description on GitHub yet.",
+        description:
+            "AI-powered presentation generator with real-time web research, image search, and streaming slide generation.",
         stars: 0,
         forks: 0,
         language: "JavaScript",
@@ -74,9 +50,36 @@ export const projectsConfig: ProjectConfig[] = [
         ],
     },
     {
+        id: "neuralisp",
+        name: "neuralisp",
+        description:
+            "Modular deep-learning framework in Common Lisp: tensor ops, layers, activation functions, optimizers, and loss functions.",
+        stars: 21,
+        forks: 0,
+        language: "Common Lisp",
+        updatedDate: "2025-11-10",
+        links: [
+            { label: "GitHub repo", href: "https://github.com/ck46/neuralisp" },
+        ],
+    },
+    {
+        id: "mcp-search",
+        name: "mcp-search",
+        description:
+            "Minimal project for indexing and recommending MCP servers.",
+        stars: 0,
+        forks: 0,
+        language: "Python",
+        updatedDate: "2025-05-06",
+        links: [
+            { label: "GitHub repo", href: "https://github.com/ck46/mcp-search" },
+        ],
+    },
+    {
         id: "transcribify",
         name: "transcribify",
-        description: "No public description on GitHub yet.",
+        description:
+            "CLI + library that turns long Zoom (or any) recordings into speaker-labelled transcripts and AI summaries via AssemblyAI.",
         stars: 0,
         forks: 0,
         language: "Python",
@@ -86,15 +89,16 @@ export const projectsConfig: ProjectConfig[] = [
         ],
     },
     {
-        id: "mcp-search",
-        name: "mcp-search",
-        description: "No public description on GitHub yet.",
+        id: "evoluteprompt",
+        name: "evoluteprompt",
+        description:
+            "Prompt management library for LLMs — version control, SQLite-backed storage, and activation strategies.",
         stars: 0,
         forks: 0,
         language: "Python",
-        updatedDate: "2025-05-06",
+        updatedDate: "2025-03-26",
         links: [
-            { label: "GitHub repo", href: "https://github.com/ck46/mcp-search" },
+            { label: "GitHub repo", href: "https://github.com/ck46/evoluteprompt" },
         ],
     },
 ];

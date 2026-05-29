@@ -6,19 +6,18 @@
  *   Strings marked "PLACEHOLDER" are safe stubs — fill them in when ready.
  * ────────────────────────────────────────────────────────────────────────────── */
 
-import { type LucideIcon, Globe, ShieldCheck, Zap, Calendar, MessageSquare, Mail } from "lucide-react";
+import { type LucideIcon, Globe, ShieldCheck } from "lucide-react";
 
 // ── Site-wide config ─────────────────────────────────────────────────────────
 
 export const siteConfig = {
     name: "Chansa Kabwe",
-    title: "AI Engineer & Safety Researcher",
+    tagline: "AI Researcher & Engineer",
     description:
-        "Building safety and reliability infrastructure for agentic AI systems.",
+        "AI researcher and engineer working on safety, reliability, and product systems for AI.",
+    contactEmail: "me@ck46.com",
     url: "https://ck46.com",
     calendly: "https://calendly.com/chansa-megacog/30min",
-    startupSite: "https://njira.ai",
-    startupBookDemo: "https://njira.ai/book",
     socials: {
         github: "https://github.com/ck46",
         huggingface: "https://huggingface.co/ck46",
@@ -28,6 +27,9 @@ export const siteConfig = {
         // arxiv: "https://arxiv.org/a/...",
     },
 };
+
+// Composed page-meta title: "Chansa Kabwe — AI Researcher & Engineer"
+export const siteMetaTitle = `${siteConfig.name} — ${siteConfig.tagline}`;
 
 // ── Credibility strip (homepage, above-the-fold) ─────────────────────────────
 
@@ -69,18 +71,29 @@ export const featuredCoverage: FeaturedCoverageItem[] = [
 
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
+// Subhead is an array of string segments or { bold } objects so the renderer
+// can emphasize specific terms (e.g., MegaCog) without parsing markdown.
+export type SubheadSegment = string | { bold: string };
+
 export const heroContent = {
     eyebrow: "Hi, I'm Chansa.",
-    headline: "I build safer, more reliable agentic AI systems.",
-    subhead:
-        "I split my time between client delivery, building NjiraAI, and research on reasoning validation so teams can deploy agents with more confidence.",
+    headline: "AI Researcher & Engineer.",
+    subhead: [
+        "I build and study dependable AI systems. Current public work includes ",
+        { bold: "NjiraAI" },
+        ", ",
+        { bold: "mcue.dev" },
+        ", ",
+        { bold: "Renbi" },
+        ", and selected preprints.",
+    ] as SubheadSegment[],
     ctaPrimary: {
-        text: "./book_call.sh",
-        href: siteConfig.calendly,
+        text: "cat research_program.md",
+        href: "/research",
     },
     ctaSecondary: {
-        text: "cat startup_brief.md",
-        href: "/startup",
+        text: "./request_intro.sh",
+        href: "/contact",
     },
 };
 
@@ -107,10 +120,20 @@ export interface Audience {
 
 export const audiences: Audience[] = [
     {
+        id: "collaborators",
+        title: "Collaborators",
+        icon: Globe,
+        description:
+            "Researchers and engineers engaging with public preprints or conference work.",
+        offers: ["Preprints", "Conference work", "Research collaboration"],
+        cta: "View Research",
+        href: "/research",
+    },
+    {
         id: "clients",
         title: "Clients",
         icon: ShieldCheck,
-        description: "Advisory & implementation for enterprise AI risk.",
+        description: "A small number of selective consulting engagements per quarter.",
         offers: [
             "LLM Safety & Reliability Sprints",
             "Agentic Risk Reviews",
@@ -119,75 +142,64 @@ export const audiences: Audience[] = [
         cta: "View Services",
         href: "/consult",
     },
-    {
-        id: "investors",
-        title: "Investors",
-        icon: Zap,
-        description: "Building the infrastructure for safe agent autonomy.",
-        offers: [
-            "NjiraAI: Agent Reliability Platform",
-            "Pre-seed / Seed opportunities",
-        ],
-        cta: "View Startup",
-        href: "/startup",
-    },
-    {
-        id: "collaborators",
-        title: "Collaborators",
-        icon: Globe,
-        description: "Researching the limits of LLM reasoning.",
-        offers: ["Reasoning Validation", "Lightweight Formal Methods", "Agent Evals"],
-        cta: "View Research",
-        href: "/research",
-    },
 ];
 
-// ── NjiraAI ──────────────────────────────────────────────────────────────────
+// ── Public projects (homepage) ───────────────────────────────────────────────
 
-export interface RoadmapItem {
-    id: string;
+export interface ResearchProjectStatusItem {
     label: string;
+    href?: string;
     status: "complete" | "in-progress" | "planned";
 }
 
-export const njiraContent = {
-    title: "NjiraAI",
-    tagline: "Safety and reliability infrastructure for tool-using AI agents.",
-    website: siteConfig.startupSite,
-    problem:
-        "Agents fail at the action layer. They call the wrong API, pass malformed arguments, loop indefinitely, or take destructive actions with no human in the loop. There\u2019s no inspection point between what an agent decides and what it actually does.",
-    solution:
-        "NjiraAI is a governance proxy that sits between your agent and its tools. Every tool call passes through a real-time policy engine that can ALLOW, BLOCK, or MODIFY it before execution. You get control over agent behavior without rewriting your agent.",
-    whatWeAreBuilding: [
-        "Policy-gated proxy for agent tool calls \u2014 ALLOW / BLOCK / MODIFY in real time",
-        "Audit-grade traces with full request/response capture",
-        "Replay and simulation: test new policies against recorded sessions",
-        "Regression testing: detect behavioral drift across model or prompt changes",
-        "Loop detection and circuit-breaker protection",
-    ],
-    example: {
-        call: "DELETE /api/v1/users/all",
-        body: '{"confirm": true}',
-        result: "BLOCK",
+export interface ResearchProject {
+    id: string;
+    headingPrefix: string; // e.g., "Product Project"
+    headingName: string;   // e.g., "mcue.dev"
+    headingHref?: string;
+    pid: string;
+    subject: string;
+    hypothesis?: string;
+    statusItems: ResearchProjectStatusItem[];
+    cta?: { text: string; href: string; external?: boolean };
+}
+
+export const researchProjects: ResearchProject[] = [
+    {
+        id: "mcue",
+        headingPrefix: "Product Project",
+        headingName: "mcue.dev",
+        headingHref: "https://mcue.dev",
+        pid: "2025",
+        subject:
+            "Local-first operating-state tooling for technical operators and AI agents.",
+        statusItems: [
+            { label: "Dogfooding", status: "in-progress" },
+            {
+                label: "Project page: mcue.dev →",
+                href: "https://mcue.dev",
+                status: "complete",
+            },
+        ],
     },
-    whoThisIsFor: [
-        "Teams deploying tool-using agents in production",
-        "Investors aligned with AI safety infrastructure",
-        "Engineers and researchers who want to work on this problem early",
-    ],
-    roadmap: [
-        { id: "alpha", label: "Alpha: Internal eval harness and proxy prototype", status: "complete" },
-        { id: "beta", label: "Beta: Closed beta with design partners (mid-Feb 2026)", status: "in-progress" },
-        { id: "v1", label: "V1: Self-hosted governance proxy, generally available", status: "planned" },
-    ] as RoadmapItem[],
-    bridgeLine: "Pilots can start as a reliability sprint.",
-    cta: {
-        text: "Book a Demo",
-        href: siteConfig.startupBookDemo,
+    {
+        id: "renbi",
+        headingPrefix: "Product Project",
+        headingName: "Renbi",
+        headingHref: "https://renbi.app",
+        pid: "2026",
+        subject:
+            "renbi.app is scheduled for official launch on June 12, 2026.",
+        statusItems: [
+            { label: "Launch preparation", status: "in-progress" },
+            {
+                label: "Product site: renbi.app →",
+                href: "https://renbi.app",
+                status: "planned",
+            },
+        ],
     },
-    ctaSecondary:
-        "Investors and prospective team members welcome. We\u2019re early, small, and building fast.",
-};
+];
 
 // ── Services (/work) ─────────────────────────────────────────────────────────
 
@@ -278,53 +290,49 @@ export interface ResearchTheme {
 
 export const researchContent = {
     thesisLine1:
-        "I build diagnostics and guardrails for reasoning in LLMs and agents.",
+        "Public research material is limited to preprints and conference work.",
     thesisLine2:
-        "Focus: math reasoning limits, reasoning reliability, and lightweight verification.",
+        "Unpublished research directions stay private until they are ready to share.",
     themes: [
         {
-            id: "reasoning-validation",
-            title: "Reasoning Validation",
+            id: "preprints",
+            title: "Preprints",
             description:
-                "Can we automatically verify the logical steps in an agent's Chain of Thought?",
+                "Public drafts and preprints that are ready for external discussion.",
             links: [
-                { label: "Read", href: "#reasoning-validation", available: false },
-                { label: "Artifacts", href: "#reasoning-validation", available: false },
+                { label: "Read", href: "#public-research", available: true },
                 { label: "Talk", href: siteConfig.calendly, available: true },
             ],
         },
         {
-            id: "lightweight-formal-methods",
-            title: "Lightweight Formal Methods",
+            id: "conference-work",
+            title: "Conference Work",
             description:
-                "Applying lightweight formal methods to probabilistic models to guarantee certain invariants.",
+                "LLMs-as-Search is set to appear at AMLDS 2026.",
             links: [
-                { label: "Read", href: "#lightweight-formal-methods", available: false },
-                { label: "Artifacts", href: "#lightweight-formal-methods", available: false },
+                { label: "Read", href: "#public-research", available: true },
                 { label: "Talk", href: siteConfig.calendly, available: true },
             ],
         },
         {
-            id: "token-level-interpretability",
-            title: "Token-level Interpretability",
+            id: "collaboration",
+            title: "Collaboration",
             description:
-                "Analyzing activation patterns to predict hallucinations or reasoning failures.",
+                "Collaboration inquiries should reference public work or a specific preprint.",
             links: [
-                { label: "Read", href: "#token-level-interpretability", available: false },
-                { label: "Artifacts", href: "#token-level-interpretability", available: false },
                 { label: "Talk", href: siteConfig.calendly, available: true },
             ],
         },
     ] as ResearchTheme[],
     collaboration: {
         intro:
-            "I am looking for co-authors, pilot partners, and labs interested in rigorous evaluation of agentic reasoning.",
+            "I am open to collaboration around public preprints and conference work.",
         lookingFor:
-            "Co-authors, research labs, and pilot partners with deployed agent stacks",
+            "Co-authors, research labs, and technical collaborators",
         iBring:
-            "Benchmarks, telemetry tooling, and validation-layer prototypes",
+            "Public drafts, implementation experience, and study design",
         idealCollaboration:
-            "Run eval suite on your agent stack; co-author paper on findings",
+            "Focused collaboration around a public preprint or conference artifact",
         cta: {
             text: "Propose Collaboration",
             href: siteConfig.calendly,
@@ -335,31 +343,31 @@ export const researchContent = {
 // ── Research map nodes (homepage + /research) ────────────────────────────────
 
 export const researchMapNodes = [
-    { label: "Search framing", anchor: "reasoning-validation" },
-    { label: "Stress diagnostics", anchor: "lightweight-formal-methods" },
-    { label: "Validation layer", anchor: "token-level-interpretability" },
+    { label: "Preprints", anchor: "public-research" },
+    { label: "AMLDS 2026", anchor: "public-research" },
+    { label: "Collaboration", anchor: "collaboration" },
 ];
 
 // ── Publications / Artifacts skeleton ────────────────────────────────────────
 
 export interface Publication {
     title: string;
-    status: "draft" | "in-submission" | "preprint" | "published";
+    status: "preprint" | "conference";
     note: string;
     href: string | null;
 }
 
 export const publications: Publication[] = [
     {
-        title: "LLMs-as-Search: token-level framing",
-        status: "draft",
-        note: "PDF on request",
+        title: "LLMs-as-Search",
+        status: "conference",
+        note: "Set to appear at AMLDS 2026.",
         href: siteConfig.calendly,
     },
     {
-        title: "Finite-Space Constraints (FSC): diagnostics + stress tests",
-        status: "draft",
-        note: "Prototype repo coming",
+        title: "Finite-Space Constraints (FSC)",
+        status: "preprint",
+        note: "Preprint available on request.",
         href: null,
     },
 ];
@@ -372,14 +380,9 @@ export interface Artifact {
 
 export const researchArtifacts: Artifact[] = [
     {
-        title: "NjiraAI validation layer: agentic safety infra",
-        note: "Early access — brief on request",
-        href: njiraContent.cta.href,
-    },
-    {
-        title: "Agentic Eval Harness + telemetry logger",
-        note: "Repo coming soon",
-        href: null, // PLACEHOLDER — add repo URL when public
+        title: "Public artifact links",
+        note: "Links will be added when artifacts are intentionally public.",
+        href: null,
     },
 ];
 
@@ -387,53 +390,19 @@ export const researchArtifacts: Artifact[] = [
 
 export const researchLogEntries = [
     {
-        date: "2026-02-10",
-        text: "Analyzing chain-of-thought failure modes in strict reasoning tasks",
-        href: "/research#reasoning-validation",
+        date: "2026",
+        text: "LLMs-as-Search set to appear at AMLDS 2026",
+        href: "/research#public-research",
     },
     {
-        date: "2026-02-01",
-        text: "Evaluating lightweight formal verification methods for agent loops",
-        href: "/research#lightweight-formal-methods",
+        date: "2026",
+        text: "Selected preprints available for research conversations",
+        href: "/research#public-research",
     },
     {
-        date: "2026-01-15",
-        text: "Initial commit: Agentic Eval Harness (v0.1.0)",
-        href: "/research#artifacts",
-    },
-];
-
-// ── Contact channels ─────────────────────────────────────────────────────────
-
-export interface ContactChannel {
-    id: string;
-    title: string;
-    icon: LucideIcon;
-    description: string;
-    href: string;
-}
-
-export const contactChannels: ContactChannel[] = [
-    {
-        id: "clients",
-        title: "Clients",
-        icon: Calendar,
-        description: "Book a discovery call for sprints or advisory.",
-        href: siteConfig.calendly,
-    },
-    {
-        id: "investors",
-        title: "Investors / Partners",
-        icon: MessageSquare,
-        description: "Request startup brief or early access to NjiraAI.",
-        href: siteConfig.calendly,
-    },
-    {
-        id: "collaborators",
-        title: "Collaborators",
-        icon: Mail,
-        description: "Propose a research project or paper collaboration.",
-        href: siteConfig.calendly,
+        date: "2026",
+        text: "Unpublished research directions kept private until release",
+        href: "/research",
     },
 ];
 
@@ -441,7 +410,7 @@ export const contactChannels: ContactChannel[] = [
 
 export const pageMetadata = {
     home: {
-        title: siteConfig.title,
+        title: siteMetaTitle,
         description: siteConfig.description,
     },
     work: {
@@ -459,15 +428,10 @@ export const pageMetadata = {
         description:
             "Selected GitHub projects across AI systems, tooling, and experiments.",
     },
-    startup: {
-        title: "NjiraAI — Startup",
-        description:
-            "Safety and reliability infrastructure for tool-using AI agents. A governance proxy that intercepts agent tool calls and applies policies in real time.",
-    },
     research: {
         title: "Research",
         description:
-            "Public research agenda on token-space search, agent governance, and foundations of intelligence.",
+            "Public preprints, conference work, and research collaboration notes.",
     },
     contact: {
         title: "Contact",

@@ -26,12 +26,12 @@ All text content is centralized in **`src/data/site.ts`**. To update copy (hero 
 | `heroContent` | Homepage headline, subhead, CTAs |
 | `credibilityLinks` | Above-the-fold proof links (GitHub, LinkedIn, etc.) |
 | `audiences` | Homepage directory listing (3 audience rows) |
-| `njiraContent` | NjiraAI: tagline, problem, solution, roadmap, what we're building |
+| `researchProjects` | Public homepage project blocks, including mcue.dev and Renbi launch status |
 | `services` | /work page service cards |
 | `miniCaseSnapshots` | /work page engagement snapshots |
 | `deliverables` | /work page deliverables strip |
 | `researchContent` | /research thesis, themes, collaboration details |
-| `publications` | /research preprints/drafts skeleton |
+| `publications` | /research public preprints and conference work |
 | `researchArtifacts` | /research tools/repos skeleton |
 | `contactChannels` | /contact mailto templates with prefilled bodies |
 | `pageMetadata` | Per-page SEO title + description |
@@ -50,7 +50,6 @@ src/
 │   ├── layout.tsx # Root layout (metadata, fonts, nav, footer)
 │   ├── page.tsx   # Homepage
 │   ├── work/      # /work (services + case snapshots)
-│   ├── startup/   # /startup (NjiraAI)
 │   ├── research/  # /research (themes + publications)
 │   └── contact/   # /contact (mailto channels)
 ├── components/

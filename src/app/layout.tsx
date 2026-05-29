@@ -1,18 +1,25 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Inter_Tight, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import { siteConfig } from "@/data/site";
+import { siteConfig, siteMetaTitle } from "@/data/site";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+import { TmuxShell } from "@/components/layout/TmuxShell";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
+const interTight = Inter_Tight({
+    subsets: ["latin"],
+    variable: "--font-inter",
+    weight: ["400", "500", "600", "700"],
+});
+const plexMono = IBM_Plex_Mono({
+    subsets: ["latin"],
+    variable: "--font-mono",
+    weight: ["400", "500", "600"],
+});
 
 export const metadata: Metadata = {
     title: {
-        default: siteConfig.title,
+        default: siteMetaTitle,
         template: `%s | ${siteConfig.name}`,
     },
     description: siteConfig.description,
@@ -24,14 +31,14 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: siteConfig.url,
-        title: siteConfig.title,
+        title: siteMetaTitle,
         description: siteConfig.description,
         siteName: siteConfig.name,
         images: [{ url: "/logo_2.png" }],
     },
     twitter: {
         card: "summary_large_image",
-        title: siteConfig.title,
+        title: siteMetaTitle,
         description: siteConfig.description,
         creator: "@ck46",
     },
@@ -44,12 +51,8 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground`}>
-                <div className="mx-auto max-w-4xl px-6 min-h-screen flex flex-col">
-                    <Navbar />
-                    <main className="flex-1 py-12">{children}</main>
-                    <Footer />
-                </div>
+            <body className={`${interTight.variable} ${plexMono.variable} font-mono bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground`}>
+                <TmuxShell>{children}</TmuxShell>
                 <Analytics />
                 <SpeedInsights />
             </body>

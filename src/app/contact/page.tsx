@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { contactChannels, pageMetadata, siteConfig } from "@/data/site";
+import { pageMetadata, siteConfig } from "@/data/site";
+import { IntakeForm } from "./IntakeForm";
 
 export const metadata: Metadata = {
     title: pageMetadata.contact.title,
@@ -13,45 +14,35 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
     return (
-        <div className="space-y-16">
-            {/* Header */}
-            <section className="space-y-4">
-                <h1 className="text-3xl md:text-4xl font-mono font-medium tracking-tight">
+        <div className="space-y-10">
+            {/* Page intro */}
+            <header className="space-y-3">
+                <p className="font-mono text-xs text-muted-foreground">
+                    <span className="text-primary">ck@46</span>
+                    <span className="text-muted-foreground/80">:~$</span>{" "}
+                    <span className="text-foreground">./request_intro.sh</span>
+                </p>
+                <h1 className="font-sans font-bold text-2xl md:text-3xl tracking-tight text-foreground">
                     /contact
                 </h1>
-                <p className="text-lg text-muted-foreground max-w-2xl">
-                    Choose the channel that best fits your needs. Each link opens a pre-filled email.
+                <p className="font-sans text-sm text-muted-foreground max-w-2xl leading-relaxed">
+                    A short intake — name, what you&apos;re working on, why now, and what
+                    you&apos;re hoping for. If the fit is right, I&apos;ll reply with a
+                    Calendly link.
                 </p>
-            </section>
+            </header>
 
-            {/* Channels */}
-            <div className="grid md:grid-cols-3 gap-4">
-                {contactChannels.map((channel) => {
-                    const Icon = channel.icon;
-                    return (
-                        <a
-                            key={channel.id}
-                            href={channel.href}
-                            className="group flex flex-col items-center p-8 border border-border card-hover text-center"
-                        >
-                            <div className="h-12 w-12 flex items-center justify-center border border-border text-primary mb-4 group-hover:bg-primary group-hover:text-primary-foreground group-hover:border-primary transition-colors">
-                                <Icon className="h-5 w-5" />
-                            </div>
-                            <h2 className="font-mono font-semibold text-lg mb-2">{channel.title}</h2>
-                            <p className="text-sm text-muted-foreground">{channel.description}</p>
-                        </a>
-                    );
-                })}
-            </div>
-
-            {/* Direct booking fallback */}
-            <section className="text-center text-sm font-mono text-muted-foreground">
-                <p>
-                    Or book directly:{" "}
-                    <a href={siteConfig.calendly} target="_blank" rel="noreferrer" className="text-primary hover:underline">
-                        Schedule a 30-min call
-                    </a>
-                </p>
+            {/* Intake pane */}
+            <section className="space-y-3">
+                <h2 className="font-sans font-semibold text-[11px] uppercase tracking-[0.14em] text-muted-foreground flex items-center gap-3">
+                    intake_form.sh
+                    <span className="flex-1 h-px bg-border"></span>
+                </h2>
+                <div className="panes max-w-3xl">
+                    <div className="pane">
+                        <IntakeForm />
+                    </div>
+                </div>
             </section>
         </div>
     );
