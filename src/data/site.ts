@@ -3,7 +3,6 @@
  *
  * HOW TO EDIT:
  *   Update the exports below. No component files need to change.
- *   Strings marked "PLACEHOLDER" are safe stubs — fill them in when ready.
  * ────────────────────────────────────────────────────────────────────────────── */
 
 import { type LucideIcon, Globe, ShieldCheck } from "lucide-react";
@@ -14,7 +13,7 @@ export const siteConfig = {
     name: "Chansa Kabwe",
     tagline: "AI Researcher & Engineer",
     description:
-        "AI researcher and engineer working on safety, reliability, and product systems for AI.",
+        "AI researcher and engineer building safety, reliability, and product systems for AI.",
     contactEmail: "me@ck46.com",
     url: "https://ck46.com",
     calendly: "https://calendly.com/chansa-megacog/30min",
@@ -61,7 +60,7 @@ export const featuredCoverage: FeaturedCoverageItem[] = [
         title: "Coding the future with MIT OpenCourseWare",
         publishedDate: "2023-04-07",
         summary:
-            "Profile feature highlighting Chansa Kabwe's learning journey and perspective on coding.",
+            "A profile on Chansa Kabwe's path into software, learning, and AI.",
         href: "https://www.ocw-openmatters.org/2023/04/07/coding-the-future-with-mit-opencourseware/",
         thumbnailUrl:
             "https://www.ocw-openmatters.org/wp-content/uploads/2023/04/1-w7EHewi1oJSpMw2iTQouGA-1024x751.webp",
@@ -72,27 +71,27 @@ export const featuredCoverage: FeaturedCoverageItem[] = [
 // ── Hero ─────────────────────────────────────────────────────────────────────
 
 // Subhead is an array of string segments or { bold } objects so the renderer
-// can emphasize specific terms (e.g., MegaCog) without parsing markdown.
+// can emphasize specific terms without parsing markdown.
 export type SubheadSegment = string | { bold: string };
 
 export const heroContent = {
     eyebrow: "Hi, I'm Chansa.",
     headline: "AI Researcher & Engineer.",
     subhead: [
-        "I build and study dependable AI systems. Current public work includes ",
+        "I work on AI safety, reliability, and product infrastructure. Current public work includes ",
         { bold: "NjiraAI" },
         ", ",
         { bold: "mcue.dev" },
         ", ",
         { bold: "Renbi" },
-        ", and selected preprints.",
+        ", and selected research preprints.",
     ] as SubheadSegment[],
     ctaPrimary: {
-        text: "cat research_program.md",
+        text: "View research",
         href: "/research",
     },
     ctaSecondary: {
-        text: "./request_intro.sh",
+        text: "Get in touch",
         href: "/contact",
     },
 };
@@ -124,8 +123,8 @@ export const audiences: Audience[] = [
         title: "Collaborators",
         icon: Globe,
         description:
-            "Researchers and engineers engaging with public preprints or conference work.",
-        offers: ["Preprints", "Conference work", "Research collaboration"],
+            "Researchers and engineers interested in public preprints and conference work.",
+        offers: ["Preprints", "Conference work", "Collaboration"],
         cta: "View Research",
         href: "/research",
     },
@@ -133,7 +132,7 @@ export const audiences: Audience[] = [
         id: "clients",
         title: "Clients",
         icon: ShieldCheck,
-        description: "A small number of selective consulting engagements per quarter.",
+        description: "Focused consulting for teams building or evaluating AI systems.",
         offers: [
             "LLM Safety & Reliability Sprints",
             "Agentic Risk Reviews",
@@ -172,7 +171,7 @@ export const researchProjects: ResearchProject[] = [
         headingHref: "https://mcue.dev",
         pid: "2025",
         subject:
-            "Local-first operating-state tooling for technical operators and AI agents.",
+            "Local-first operating-state tooling for technical operators and AI agents. Currently in dogfooding.",
         statusItems: [
             { label: "Dogfooding", status: "in-progress" },
             {
@@ -189,7 +188,7 @@ export const researchProjects: ResearchProject[] = [
         headingHref: "https://renbi.app",
         pid: "2026",
         subject:
-            "renbi.app is scheduled for official launch on June 12, 2026.",
+            "Official launch scheduled for June 12, 2026.",
         statusItems: [
             { label: "Launch preparation", status: "in-progress" },
             {
@@ -208,7 +207,7 @@ export const services = [
         title: "LLM Safety & Reliability Sprint",
         duration: "2–3 weeks",
         description:
-            "We evaluate your current agentic system, create a custom evaluation harness, and define quality gates to prevent regression.",
+            "Evaluate an agentic system, build a focused test harness, and define quality gates that catch regressions before release.",
         outcomes: [
             "Custom eval dataset & metric definition",
             "Automated regression suite",
@@ -219,7 +218,7 @@ export const services = [
         title: "Agentic Risk Review",
         duration: "1 week",
         description:
-            "A deep-dive threat modeling session to identify failure modes in your agent's architecture and reasoning loops.",
+            "A structured review of an agent's architecture, tool use, and failure modes.",
         outcomes: [
             "Threat model document",
             "Failure mode taxonomy",
@@ -230,7 +229,7 @@ export const services = [
         title: "Build-with-you Advisory",
         duration: "Monthly",
         description:
-            "Ongoing architectural review and guidance on MLOps, evaluation strategies, and safety-critical implementation details.",
+            "Ongoing architecture review, evaluation design, and implementation guidance for teams moving quickly.",
         outcomes: [
             "Weekly architecture reviews",
             "Code-level guidance",
@@ -249,19 +248,19 @@ export interface MiniCaseSnapshot {
 
 export const miniCaseSnapshots: MiniCaseSnapshot[] = [
     {
-        context: "FinTech — autonomous financial analysis agent",
-        work: "Built custom eval harness + constrained-decoding guardrails",
-        result: "Details on request",
+        context: "Financial analysis agent",
+        work: "Evaluation harness and guardrail review",
+        result: "Details available on request",
     },
     {
-        context: "Healthcare — RAG-based clinical guideline agent",
-        work: "Safety gate design + multi-turn evaluation suite",
-        result: "Details on request",
+        context: "Clinical guideline assistant",
+        work: "Safety gate design and multi-turn evaluation",
+        result: "Details available on request",
     },
     {
-        context: "Developer tooling — code-generation agent pipeline",
-        work: "Regression testing framework + failure taxonomy",
-        result: "Details on request", // PLACEHOLDER — update with real outcome
+        context: "Code-generation workflow",
+        work: "Regression testing and failure taxonomy",
+        result: "Details available on request",
     },
 ];
 
@@ -290,15 +289,15 @@ export interface ResearchTheme {
 
 export const researchContent = {
     thesisLine1:
-        "Public research material is limited to preprints and conference work.",
+        "Research on reasoning and reliability in language models.",
     thesisLine2:
-        "Unpublished research directions stay private until they are ready to share.",
+        "Selected preprints and conference work.",
     themes: [
         {
             id: "preprints",
             title: "Preprints",
             description:
-                "Public drafts and preprints that are ready for external discussion.",
+                "Drafts and preprints that are ready for focused external conversations.",
             links: [
                 { label: "Read", href: "#public-research", available: true },
                 { label: "Talk", href: siteConfig.calendly, available: true },
@@ -308,7 +307,7 @@ export const researchContent = {
             id: "conference-work",
             title: "Conference Work",
             description:
-                "LLMs-as-Search is set to appear at AMLDS 2026.",
+                "LLMs-as-Search is scheduled to appear at AMLDS 2026.",
             links: [
                 { label: "Read", href: "#public-research", available: true },
                 { label: "Talk", href: siteConfig.calendly, available: true },
@@ -318,7 +317,7 @@ export const researchContent = {
             id: "collaboration",
             title: "Collaboration",
             description:
-                "Collaboration inquiries should reference public work or a specific preprint.",
+                "Collaboration inquiries are easiest to scope around a public paper or artifact.",
             links: [
                 { label: "Talk", href: siteConfig.calendly, available: true },
             ],
@@ -332,7 +331,7 @@ export const researchContent = {
         iBring:
             "Public drafts, implementation experience, and study design",
         idealCollaboration:
-            "Focused collaboration around a public preprint or conference artifact",
+            "A focused collaboration around a preprint, paper, or shared evaluation question",
         cta: {
             text: "Propose Collaboration",
             href: siteConfig.calendly,
@@ -361,13 +360,13 @@ export const publications: Publication[] = [
     {
         title: "LLMs-as-Search",
         status: "conference",
-        note: "Set to appear at AMLDS 2026.",
+        note: "Scheduled to appear at AMLDS 2026.",
         href: siteConfig.calendly,
     },
     {
         title: "Finite-Space Constraints (FSC)",
         status: "preprint",
-        note: "Preprint available on request.",
+        note: "Preprint available for focused research conversations.",
         href: null,
     },
 ];
@@ -381,7 +380,7 @@ export interface Artifact {
 export const researchArtifacts: Artifact[] = [
     {
         title: "Public artifact links",
-        note: "Links will be added when artifacts are intentionally public.",
+        note: "Links will be added when artifacts are ready for public release.",
         href: null,
     },
 ];
@@ -390,18 +389,18 @@ export const researchArtifacts: Artifact[] = [
 
 export const researchLogEntries = [
     {
-        date: "2026",
-        text: "LLMs-as-Search set to appear at AMLDS 2026",
+        date: "2026-05-29",
+        text: "LLMs-as-Search scheduled for AMLDS 2026",
         href: "/research#public-research",
     },
     {
-        date: "2026",
-        text: "Selected preprints available for research conversations",
+        date: "2026-05-29",
+        text: "Selected preprints available for focused research conversations",
         href: "/research#public-research",
     },
     {
-        date: "2026",
-        text: "Unpublished research directions kept private until release",
+        date: "2026-05-29",
+        text: "Additional research directions will be added when public",
         href: "/research",
     },
 ];
@@ -431,7 +430,7 @@ export const pageMetadata = {
     research: {
         title: "Research",
         description:
-            "Public preprints, conference work, and research collaboration notes.",
+            "Public preprints, conference work, and collaboration notes.",
     },
     contact: {
         title: "Contact",

@@ -17,9 +17,9 @@ export interface ProjectConfig {
 export const projectsPageConfig = {
     title: "/projects",
     intro:
-        "Public projects I'm running, plus the top GitHub repositories from my profile.",
+        "Public projects I'm running, plus selected GitHub repositories from my profile.",
     sourceNote: "Source: GitHub profile snapshot (May 29, 2026).",
-    sectionTitle: "Top GitHub projects",
+    sectionTitle: "Selected GitHub projects",
 };
 
 export const projectsConfig: ProjectConfig[] = [
@@ -27,7 +27,7 @@ export const projectsConfig: ProjectConfig[] = [
         id: "llms-as-token-search",
         name: "llms-as-token-search",
         description:
-            "Companion repo for the AMLDS 2026 paper. Language models as probabilistic search agents over token space.",
+            "Companion repo for the AMLDS 2026 work on language models as search systems.",
         stars: 0,
         forks: 0,
         language: "Python",
@@ -53,7 +53,7 @@ export const projectsConfig: ProjectConfig[] = [
         id: "neuralisp",
         name: "neuralisp",
         description:
-            "Modular deep-learning framework in Common Lisp: tensor ops, layers, activation functions, optimizers, and loss functions.",
+            "Modular deep-learning framework in Common Lisp with tensor operations, layers, and training utilities.",
         stars: 21,
         forks: 0,
         language: "Common Lisp",
@@ -92,7 +92,7 @@ export const projectsConfig: ProjectConfig[] = [
         id: "evoluteprompt",
         name: "evoluteprompt",
         description:
-            "Prompt management library for LLMs — version control, SQLite-backed storage, and activation strategies.",
+            "Prompt management library for LLMs with version control and SQLite-backed storage.",
         stars: 0,
         forks: 0,
         language: "Python",

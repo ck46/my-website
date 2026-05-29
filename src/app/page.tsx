@@ -154,10 +154,10 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* BR — tail logs */}
+                {/* BR — research updates */}
                 <div className="pane">
                     <p className="pane-title">
-                        <span className="lead">▸</span> tail -f var/log/research
+                        <span className="lead">▸</span> research/updates
                         <span className="meta">live</span>
                     </p>
                     <div>
@@ -182,7 +182,7 @@ export default function Home() {
                         >
                             <span className="ts text-muted-foreground/60">····</span>
                             <span className="msg text-muted-foreground/60">
-                                view more logs →
+                                view research →
                             </span>
                         </Link>
                     </div>

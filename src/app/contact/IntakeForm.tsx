@@ -88,7 +88,7 @@ export function IntakeForm() {
             </button>
 
             <p className="text-xs font-mono text-muted-foreground">
-                Opens your email client with a draft to {siteConfig.contactEmail}. If it fits, I&apos;ll reply with a Calendly link.
+                Opens your email client with a draft to {siteConfig.contactEmail}.
             </p>
         </form>
     );

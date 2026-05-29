@@ -34,7 +34,7 @@ export default function ProjectsPage() {
                     {projectsPageConfig.title}
                 </h1>
                 <p className="font-sans text-sm text-muted-foreground max-w-3xl leading-relaxed">
-                    Public projects I&apos;m running, plus the top GitHub repositories from my profile.
+                    {projectsPageConfig.intro}
                 </p>
             </header>
 
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
             {/* Top GitHub projects */}
             <section className="space-y-3">
                 <h2 className="font-sans font-semibold text-[11px] uppercase tracking-[0.14em] text-muted-foreground flex items-center gap-3">
-                    top github · {projectsConfig.length} repos
+                    selected github · {projectsConfig.length} repos
                     <span className="flex-1 h-px bg-border"></span>
                 </h2>
                 <p className="font-mono text-[11px] text-muted-foreground/80">

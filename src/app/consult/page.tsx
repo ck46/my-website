@@ -25,7 +25,7 @@ export default function ConsultPage() {
                     /consult
                 </h1>
                 <p className="font-sans text-sm text-muted-foreground leading-relaxed max-w-2xl">
-                    A small number of selective consulting engagements per quarter. I take on work where it directly informs my research.
+                    Focused advisory and implementation support for teams building, evaluating, or hardening AI systems.
                 </p>
             </header>
 

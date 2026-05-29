@@ -26,17 +26,17 @@ export default function ResearchPage() {
                     /research
                 </h1>
                 <p className="font-sans text-base font-medium text-foreground max-w-3xl leading-relaxed">
-                    Public research surface.
+                    {researchContent.thesisLine1}
                 </p>
                 <p className="font-sans text-sm text-muted-foreground max-w-3xl leading-relaxed">
-                    {researchContent.thesisLine1} {researchContent.thesisLine2}
+                    {researchContent.thesisLine2}
                 </p>
             </header>
 
             {/* Public research */}
             <section id="public-research" className="space-y-3 scroll-mt-24">
                 <h2 className="font-sans font-semibold text-[11px] uppercase tracking-[0.14em] text-muted-foreground flex items-center gap-3">
-                    public research · {publications.length} items
+                    preprints · {publications.length} items
                     <span className="flex-1 h-px bg-border"></span>
                 </h2>
                 <div className="panes panes-2 max-md:!grid-cols-1">
@@ -76,7 +76,7 @@ export default function ResearchPage() {
                 <div className="panes">
                     <div className="pane">
                         <p className="font-sans text-sm text-muted-foreground leading-relaxed mb-4">
-                            I am open to collaboration around public preprints and the AMLDS 2026 work. Unpublished research directions are kept off the public site until they are ready to share.
+                            I am open to collaboration around public preprints and the AMLDS 2026 work. The easiest starting point is a specific paper, artifact, or evaluation question.
                         </p>
                         <div className="grid sm:grid-cols-3 gap-x-4 gap-y-3 font-mono text-xs">
                             <div>
@@ -89,7 +89,7 @@ export default function ResearchPage() {
                             </div>
                             <div>
                                 <span className="text-[10px] uppercase tracking-[0.12em] text-muted-foreground/80">
-                                    Reference point
+                                    What I bring
                                 </span>
                                 <p className="font-sans text-sm text-foreground mt-1">
                                     {researchContent.collaboration.iBring}

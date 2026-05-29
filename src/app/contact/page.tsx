@@ -20,15 +20,14 @@ export default function ContactPage() {
                 <p className="font-mono text-xs text-muted-foreground">
                     <span className="text-primary">ck@46</span>
                     <span className="text-muted-foreground/80">:~$</span>{" "}
-                    <span className="text-foreground">./request_intro.sh</span>
+                    <span className="text-foreground">./start_conversation.sh</span>
                 </p>
                 <h1 className="font-sans font-bold text-2xl md:text-3xl tracking-tight text-foreground">
                     /contact
                 </h1>
                 <p className="font-sans text-sm text-muted-foreground max-w-2xl leading-relaxed">
-                    A short intake — name, what you&apos;re working on, why now, and what
-                    you&apos;re hoping for. If the fit is right, I&apos;ll reply with a
-                    Calendly link.
+                    What you&apos;re working on, why now, and what kind of conversation
+                    would be useful. If there&apos;s a fit, I&apos;ll reply with next steps.
                 </p>
             </header>
 
