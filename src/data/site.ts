@@ -79,8 +79,6 @@ export const heroContent = {
     headline: "AI Researcher & Engineer.",
     subhead: [
         "I work on AI safety, reliability, and product infrastructure. Current public work includes ",
-        { bold: "NjiraAI" },
-        ", ",
         { bold: "mcue.dev" },
         ", ",
         { bold: "Renbi" },
