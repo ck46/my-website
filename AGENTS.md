@@ -33,12 +33,7 @@ If details are unknown, use **explicit placeholders**, e.g.:
 - “(In progress)”
 - “(Placeholder — replace with real metric)”
 
-### 2.2 Startup description (safe default)
-Use this high-level description unless the repo already contains more accurate copy:
-
-> **NjiraAI** is building safety and reliability infrastructure for **agentic AI systems**, focusing on **reasoning validation**, evaluation, and guardrails to make AI agents safer and more deployable in higher-stakes environments.
-
-### 2.3 Copy style
+### 2.2 Copy style
 - Prefer **grounded, enterprise-readable** language: safety, reliability, evaluation, validation, guardrails, deployment risk.
 - Avoid hype like “revolutionary”, “changing the world”, “future of AI” unless backed with concrete proof.
 - Keep niche/long-horizon interests (e.g., Lisp explorations, humanoid robotics) off the main conversion path—place them under **Research** or **Explorations**.
@@ -51,7 +46,6 @@ Use this high-level description unless the repo already contains more accurate c
 Target structure (adapt to current framework/router):
 - `/` Home
 - `/work` Case studies + services
-- `/startup` NjiraAI pitch
 - `/research` Research themes + featured artifacts + collaboration asks
 - optional `/writing` or `/talks` (only if present)
 - `/contact` Contact options
@@ -61,10 +55,9 @@ Target structure (adapt to current framework/router):
    - Primary CTA: **Book a call**
    - Secondary CTA: **Request startup info/deck** (do not assume deck exists)
 2. **Who I help**: 3 cards (Clients / Investors / Collaborators)
-3. **NjiraAI block**: problem → solution → differentiators → milestones/roadmap → CTA
-4. **Case studies**: 2–5 entries (allow placeholders clearly labeled)
-5. **Research highlights**: 2–3 items
-6. **Contact**: repeat the 3 conversion paths
+3. **Case studies**: 2–5 entries (allow placeholders clearly labeled)
+4. **Research highlights**: 2–3 items
+5. **Contact**: repeat the 3 conversion paths
 
 ### 3.3 Client offers (services)
 Include a “Ways to work with me” section (home and/or work page) describing:

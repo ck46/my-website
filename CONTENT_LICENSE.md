@@ -6,14 +6,13 @@ While the source code of this repository is licensed under the MIT License (see 
 The following materials are **Copyright © 2026 CK. All Rights Reserved**:
 -   All text copy (website text, blog posts, case studies, research summaries).
 -   All images, graphics, diagrams, and videos (e.g., in `public/`, `src/assets/`, or `src/data/`).
--   The "NjiraAI" product name, brand marks, and any related logos.
 -   The "CK46" personal brand identity and logo.
 -   Specific content files such as `src/data/content.ts`.
 
 **You may NOT:**
 -   Copy, redistribute, or use this content for commercial purposes.
 -   Create derivative works (e.g., using my case studies or copy for your own portfolio).
--   Use the "NjiraAI" or "CK46" branding in your own projects.
+-   Use the "CK46" branding in your own projects.
 
 ## 2. Permitted Use (Source Code)
 You are free to use the **source code** (React components, Next.js architecture, utility functions, styling logic) under the terms of the MIT License. You may fork this repository to build your own website, provided you:
