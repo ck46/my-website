@@ -169,9 +169,9 @@ export const researchProjects: ResearchProject[] = [
         headingHref: "https://mcue.dev",
         pid: "2025",
         subject:
-            "Local-first operating-state tooling for technical operators and AI agents. Now accepting invites.",
+            "Local-first operating-state tooling for technical operators and AI agents. Now in early access.",
         statusItems: [
-            { label: "Accepting invites", status: "in-progress" },
+            { label: "Early access", status: "in-progress" },
             {
                 label: "Project page: mcue.dev →",
                 href: "https://mcue.dev",
