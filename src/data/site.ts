@@ -169,9 +169,9 @@ export const researchProjects: ResearchProject[] = [
         headingHref: "https://mcue.dev",
         pid: "2025",
         subject:
-            "Local-first operating-state tooling for technical operators and AI agents. Currently in dogfooding.",
+            "Local-first operating-state tooling for technical operators and AI agents. Now accepting invites.",
         statusItems: [
-            { label: "Dogfooding", status: "in-progress" },
+            { label: "Accepting invites", status: "in-progress" },
             {
                 label: "Project page: mcue.dev →",
                 href: "https://mcue.dev",
@@ -186,13 +186,13 @@ export const researchProjects: ResearchProject[] = [
         headingHref: "https://renbi.app",
         pid: "2026",
         subject:
-            "Official launch scheduled for June 12, 2026.",
+            "Launched June 12, 2026 — live at renbi.app.",
         statusItems: [
-            { label: "Launch preparation", status: "in-progress" },
+            { label: "Live", status: "complete" },
             {
                 label: "Product site: renbi.app →",
                 href: "https://renbi.app",
-                status: "planned",
+                status: "complete",
             },
         ],
     },
